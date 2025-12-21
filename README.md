@@ -1,16 +1,53 @@
-## Hi there 👋
+<h1 align="center">Hi 👋, I'm Lucas Torres! 🇵🇾</h1>
+<h3 align="center">Computer Science Engineering Student & Aspiring AI & Computer Vision Specialist</h3>
 
-<!--
-**TurmeDev/TurmeDev** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=turmedev&label=Profile%20views&color=0e75b6&style=flat-square" alt="turmedev" />
+</p>
 
-Here are some ideas to get you started:
+<p align="center">
+  <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=turmedev&theme=radical" alt="turmedev" /></a>
+</p>
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+---
+
+### 🚀 About Me
+I am a Computer Science Engineering student at the **National University of Asunción (UNA)**. My passion for technology started at age 5 as a hardware enthusiast, which naturally evolved into a career in software development starting in 2020. 
+
+Currently, I am bridging the gap between low-level hardware understanding and high-level AI applications, with a dedicated focus on **Computer Vision**.
+
+- 🎓 Pursuing a degree in **Computer Science Engineering at Poly-UNA**.
+- 🌱 Deep diving into **OpenCV, TensorFlow, and Backend Frameworks**.
+- 💡 Interested in how AI can interact with the physical world through hardware.
+- ⚡ Fun fact: **I used to be a content creator on YouTube!**
+
+---
+
+### 🛠️ Languages and Tools
+<p align="left">
+  <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="45" height="45"/> </a>
+  <a href="https://opencv.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/opencv/opencv-icon.svg" alt="opencv" width="45" height="45"/> </a>
+  <a href="https://pytorch.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/pytorch/pytorch-icon.svg" alt="pytorch" width="45" height="45"/> </a>
+  <a href="https://www.tensorflow.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-line.svg" alt="tensorflow" width="45" height="45"/> </a>
+  <a href="https://www.cprogramming.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="45" height="45"/> </a>
+  <a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="45" height="45"/> </a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="45" height="45"/> </a>
+  <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="45" height="45"/> </a>
+  <a href="https://www.linux.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="45" height="45"/> </a>
+</p>
+
+---
+
+### 📊 GitHub Stats
+<p align="center">
+  <img width="48%" src="https://github-readme-stats.vercel.app/api/top-langs?username=turmedev&show_icons=true&locale=en&layout=compact&theme=radical" alt="turmedev" />
+  <img width="48%" src="https://github-readme-stats.vercel.app/api?username=turmedev&show_icons=true&locale=en&theme=radical" alt="turmedev" />
+</p>
+
+---
+
+### 🤝 Connect with me
+<p align="left">
+  <a href="mailto:turmedev@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
+  <a href="https://www.linkedin.com/in/tu-usuario-linkedin"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+</p>

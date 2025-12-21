@@ -4,6 +4,7 @@
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=turmedev&label=Profile%20views&color=0e75b6&style=flat-square" alt="turmedev" />
 </p>
+
 ---
 
 ### 🚀 About Me
@@ -35,8 +36,11 @@ Currently, I am bridging the gap between low-level hardware understanding and hi
 
 ### 📊 GitHub Stats
 <p align="center">
-  <img width="48%" src="https://github-readme-stats.vercel.app/api/top-langs?username=turmedev&show_icons=true&locale=en&layout=compact&theme=radical" alt="turmedev" />
-  <img width="48%" src="https://github-readme-stats.vercel.app/api?username=turmedev&show_icons=true&locale=en&theme=radical" alt="turmedev" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=turmedev&show_icons=true&locale=en&layout=compact&theme=radical" alt="turmedev languages" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=turmedev&show_icons=true&locale=en&theme=radical" alt="turmedev stats" />
 </p>
 
 ---

@@ -16,7 +16,7 @@ I am a Computer Science Engineering student at the **National University of Asun
 
 Currently, I am bridging the gap between low-level hardware understanding and high-level AI applications, with a dedicated focus on **Computer Vision**.
 
-- 🎓 Pursuing a degree in **Computer Science Engineering at Poly-UNA**.
+- 🎓 Pursuing a degree in **Computer Science Engineering at FP-UNA**.
 - 🌱 Deep diving into **OpenCV, TensorFlow, and Backend Frameworks**.
 - 💡 Interested in how AI can interact with the physical world through hardware.
 - ⚡ Fun fact: **I used to be a content creator on YouTube!**
@@ -48,6 +48,7 @@ Currently, I am bridging the gap between low-level hardware understanding and hi
 
 ### 🤝 Connect with me
 <p align="left">
-  <a href="mailto:turmedev@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
+  <a href="mailto:turmedev@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" /></a>
   <a href="https://www.linkedin.com/in/lucas-torres-3a192a354?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BGzHZhoehQa2ERoZ6uMV%2FzA%3D%3D"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+  <a href="https://www.youtube.com/@TurmeDev"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube" /></a>
 </p>

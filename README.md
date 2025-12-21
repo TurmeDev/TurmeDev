@@ -49,5 +49,5 @@ Currently, I am bridging the gap between low-level hardware understanding and hi
 ### 🤝 Connect with me
 <p align="left">
   <a href="mailto:turmedev@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
-  <a href="https://www.linkedin.com/in/tu-usuario-linkedin"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+  <a href="https://www.linkedin.com/in/tu-usuario-linkedin"><img src="[https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white](https://www.linkedin.com/in/lucas-torres-3a192a354?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BGzHZhoehQa2ERoZ6uMV%2FzA%3D%3D)" alt="LinkedIn" /></a>
 </p>

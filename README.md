@@ -1,9 +1,9 @@
 <h1 align="center">Hi 👋, I'm Lucas Torres! 🇵🇾</h1>
 <h3 align="center">Computer Science Engineering Student & Aspiring AI & Computer Vision Specialist</h3>
 
-<!--<p align="center">
+<p align="center">
   <img src="https://komarev.com/ghpvc/?username=turmedev&label=Profile%20views&color=0e75b6&style=flat-square" alt="turmedev" />
-</p>-->
+</p>
 
 ---
 

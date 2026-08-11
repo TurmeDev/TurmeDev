@@ -25,6 +25,6 @@ TensorFlow, PyTorch — learning, not in the stack yet.
 
 ## Find me
 
-- LinkedIn: [lucas-torres-3a192a354](https://www.linkedin.com/in/lucas-torres-3a192a354)
+- LinkedIn: [TurmeDev](https://www.linkedin.com/in/turmedev/)
 - YouTube: [@TurmeDev](https://www.youtube.com/@TurmeDev)
 - Email: [turmedev@gmail.com](mailto:turmedev@gmail.com)

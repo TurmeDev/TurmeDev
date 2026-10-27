@@ -3,456 +3,501 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lucas Torres — Software Architect in training · AI & Computer Vision</title>
-  <meta name="description" content="CSE student at FP-UNA building edge computer vision systems. Backend-strong, hardware-aware, AI/CV focused. From Paraguay.">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Lucas Torres, Software Architect in training</title>
+  <meta name="description" content="Software architect in training, AI engineer and orange-team-minded about security. Computer Engineering student at FP-UNA, Asunción, Paraguay.">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#1b2028">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lucas Torres, Software Architect in training">
+  <meta property="og:description" content="I design systems, build them with AI agents, and keep security inside the design.">
+  <meta property="og:url" content="https://turmedev.github.io/TurmeDev/">
+  <meta property="og:image" content="https://github.com/TurmeDev.png">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Crect width='8' height='8' fill='%230f3c46'/%3E%3Crect x='1' y='1' width='2' height='1' fill='%232a9e9e'/%3E%3Crect x='5' y='2' width='2' height='2' fill='%2316606a'/%3E%3Crect x='3' y='3' width='2' height='2' fill='%234fe3dc'/%3E%3Crect x='1' y='5' width='1' height='2' fill='%2316606a'/%3E%3Crect x='5' y='6' width='2' height='1' fill='%232a9e9e'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:wght@400..700&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0a0e1a;
-      --bg-elevated: #11162a;
-      --bg-softer: #0e1326;
-      --border: rgba(255, 255, 255, 0.08);
-      --border-strong: rgba(255, 255, 255, 0.14);
-      --text: #e6e8ee;
-      --text-muted: #8a93a6;
-      --text-dim: #5a6378;
-      --accent: #22d3ee;
-      --accent-soft: rgba(34, 211, 238, 0.10);
-      --accent-border: rgba(34, 211, 238, 0.30);
-      --accent-2: #a78bfa;
+      --deepslate: #1b2028;
+      --deepslate-low: #151a21;
+      --deepslate-high: #232a34;
+      --seam: #2d3542;
+      --seam-light: #3a4452;
+      --bone: #d4dbe3;
+      --ash: #95a1b0;
+      --sculk-1: #0f3c46;
+      --sculk-2: #16606a;
+      --sculk-3: #2a9e9e;
+      --sensor: #4fe3dc;
+      --soul: #7cc4ff;
+      --candle: #f0883e;
+      --px: 4px;
+      --pixel-corners: polygon(
+        0 var(--px), var(--px) var(--px), var(--px) 0,
+        calc(100% - var(--px)) 0, calc(100% - var(--px)) var(--px), 100% var(--px),
+        100% calc(100% - var(--px)), calc(100% - var(--px)) calc(100% - var(--px)), calc(100% - var(--px)) 100%,
+        var(--px) 100%, var(--px) calc(100% - var(--px)), 0 calc(100% - var(--px)));
     }
+
     * { box-sizing: border-box; }
-    html, body { background: var(--bg); color: var(--text); }
+    html { -webkit-text-size-adjust: 100%; }
     body {
-      font-family: 'Outfit', sans-serif;
-      font-weight: 400;
-      letter-spacing: -0.005em;
+      margin: 0;
+      color: var(--bone);
+      background-color: var(--deepslate);
+      /* deepslate tiles: an 8x8 pixel texture drawn at 4px per pixel */
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Crect width='8' height='8' fill='%231b2028'/%3E%3Crect x='0' y='0' width='3' height='1' fill='%23202630'/%3E%3Crect x='5' y='1' width='2' height='1' fill='%23171c23'/%3E%3Crect x='2' y='3' width='3' height='1' fill='%23202630'/%3E%3Crect x='6' y='4' width='2' height='1' fill='%23171c23'/%3E%3Crect x='0' y='6' width='2' height='1' fill='%23171c23'/%3E%3Crect x='4' y='7' width='3' height='1' fill='%23202630'/%3E%3C/svg%3E");
+      background-size: 32px 32px;
+      image-rendering: pixelated;
+      font-family: 'Mona Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
       -webkit-font-smoothing: antialiased;
     }
-    .font-mono { font-family: 'JetBrains Mono', monospace; }
-    h1, h2, h3, h4 { letter-spacing: -0.025em; font-weight: 500; }
-    a { color: inherit; text-decoration: none; }
-
-    .grid-bg {
-      background-image:
-        linear-gradient(var(--border) 1px, transparent 1px),
-        linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 56px 56px;
-      background-position: -1px -1px;
-      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
-      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
-    }
-
-    .card {
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      transition: border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
-    }
-    .card:hover {
-      border-color: var(--border-strong);
-      transform: translateY(-2px);
-    }
-    .card-link:hover {
-      border-color: var(--accent-border);
-      box-shadow: 0 0 0 1px var(--accent-border), 0 4px 24px -8px var(--accent-soft);
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      font-size: 13px;
-      color: var(--text);
-      background: var(--bg-elevated);
-      transition: border-color 200ms ease, color 200ms ease;
-    }
-    .pill:hover { border-color: var(--accent-border); color: var(--accent); }
-    .pill svg { width: 14px; height: 14px; flex-shrink: 0; }
-
-    .focus-card {
-      position: relative;
-      padding: 24px;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-    }
-    .focus-card::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--accent);
-      opacity: 0.6;
-    }
-    .focus-card.passion::before { background: var(--accent); }
-    .focus-card.market::before { background: var(--accent-2); }
-    .focus-card.niche::before { background: #34d399; }
-
-    .skill-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
-      background: var(--bg-softer);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      font-size: 14px;
-      transition: border-color 200ms ease;
-    }
-    .skill-row:hover { border-color: var(--border-strong); }
-    .skill-row .dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--accent); flex-shrink: 0;
-    }
-    .skill-row .dot.dim { background: var(--text-dim); }
-    .skill-row .dot.purple { background: var(--accent-2); }
-    .skill-row .dot.green { background: #34d399; }
-
-    .timeline { list-style: none; padding: 0; margin: 0; position: relative; }
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 7px; top: 6px; bottom: 6px;
-      width: 2px;
-      background: var(--border-strong);
-    }
-    .timeline li {
-      position: relative;
-      padding: 0 0 28px 32px;
-    }
-    .timeline li::before {
-      content: "";
-      position: absolute;
-      left: 1px; top: 4px;
-      width: 14px; height: 14px;
-      border-radius: 50%;
-      background: var(--bg);
-      border: 2px solid var(--accent);
-    }
-    .timeline li:last-child { padding-bottom: 0; }
-    .timeline .year {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      color: var(--text-dim);
-      letter-spacing: 0.08em;
-    }
-    .timeline .what {
-      font-size: 15px;
+    h1, h2, h3 {
+      font-family: 'Pixelify Sans', 'Mona Sans', system-ui, sans-serif;
       font-weight: 500;
-      margin: 2px 0 4px;
+      line-height: 1.15;
+      margin: 0;
     }
-    .timeline .why {
+    p { margin: 0; }
+    a { color: var(--soul); text-underline-offset: 3px; }
+    a:hover { color: var(--sensor); }
+    :focus-visible { outline: 2px solid var(--sensor); outline-offset: 3px; }
+
+    .panel {
+      background: var(--deepslate-low);
+      border: 2px solid var(--seam);
+      clip-path: var(--pixel-corners);
+    }
+
+    /* ---------- layout ---------- */
+    .page {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 48px 16px 64px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 40px;
+    }
+    @media (min-width: 900px) {
+      .page { grid-template-columns: 280px minmax(0, 1fr); gap: 48px; padding: 64px 32px 80px; }
+      .side { position: sticky; top: 32px; align-self: start; }
+    }
+    main { display: grid; gap: 72px; min-width: 0; }
+    section > h2 { font-size: 26px; margin-bottom: 20px; }
+
+    /* ---------- sidebar ---------- */
+    .avatar {
+      width: 100%;
+      max-width: 280px;
+      aspect-ratio: 1;
+      height: auto;
+      display: block;
+      image-rendering: pixelated;
+      background: var(--sculk-1);
+      border: 4px solid var(--seam);
+      clip-path: var(--pixel-corners);
+    }
+    @media (max-width: 899px) {
+      .side-top { display: flex; gap: 20px; align-items: center; }
+      .avatar { width: 96px; }
+    }
+    .name { font-size: 30px; margin-top: 20px; }
+    @media (max-width: 899px) { .name { margin-top: 0; } }
+    .handle { color: var(--ash); font-size: 18px; margin-top: 2px; }
+    .status { margin-top: 18px; padding: 10px 12px; display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.45; border-color: var(--sculk-2); }
+    .status svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; }
+    .bio { margin-top: 18px; font-size: 16px; }
+    .facts { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 8px; font-size: 14px; color: var(--ash); }
+    .facts li { display: flex; gap: 10px; align-items: center; }
+    .facts svg { width: 16px; height: 16px; flex-shrink: 0; fill: var(--ash); }
+    .facts a { color: var(--bone); text-decoration: none; }
+    .facts a:hover { color: var(--sensor); text-decoration: underline; }
+    .achievements { margin-top: 28px; padding-top: 20px; border-top: 2px solid var(--seam); }
+    .achievements h2 { font-size: 18px; margin-bottom: 14px; }
+    .badge { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 14px; }
+    .badge svg { width: 36px; height: 36px; flex-shrink: 0; }
+    .badge strong { display: block; font-weight: 600; font-size: 14px; line-height: 1.35; }
+    .badge span { font-size: 13px; color: var(--ash); }
+
+    /* ---------- intro + sculk graph ---------- */
+    .intro h1 { font-size: clamp(30px, 4.4vw, 46px); max-width: 22ch; }
+    .intro p { margin-top: 18px; max-width: 62ch; color: var(--ash); font-size: 17px; }
+
+    .sculk { margin-top: 36px; padding: 18px 16px 14px; }
+    .sculk-scroll { overflow-x: auto; padding-bottom: 6px; container-type: inline-size; }
+    /* blocks grow with the panel: 53 weeks fill the width, never smaller than 11px */
+    .sculk-inner { --cell: max(11px, calc((100cqw - 34px) / 53 - 3px)); display: grid; grid-template-columns: 28px auto; gap: 6px; width: max-content; }
+    .months { grid-column: 2; position: relative; height: 16px; font-size: 12px; color: var(--ash); }
+    .months span { position: absolute; top: 0; }
+    .weekdays { display: grid; grid-template-rows: repeat(7, var(--cell)); gap: 3px; font-size: 11px; color: var(--ash); align-items: center; }
+    .grid {
+      display: grid;
+      grid-template-rows: repeat(7, var(--cell));
+      grid-auto-columns: var(--cell);
+      grid-auto-flow: column;
+      gap: 3px;
+      cursor: crosshair;
+    }
+    .grid i { display: block; width: var(--cell); height: var(--cell); background: var(--deepslate-high); box-shadow: inset -1px -1px 0 #12161c; }
+    .grid i[data-l="1"] { background: var(--sculk-1); box-shadow: inset -1px -1px 0 #0a2a31; }
+    .grid i[data-l="2"] { background: var(--sculk-2); box-shadow: inset 1px 1px 0 var(--sculk-3); }
+    .grid i[data-l="3"] { background: var(--sculk-3); box-shadow: inset 1px 1px 0 var(--sensor); }
+    .grid i[data-l="4"] { background: var(--sensor); box-shadow: inset -2px -2px 0 var(--sculk-3); }
+    .grid i.empty { visibility: hidden; }
+    .grid.sensing i { animation: sense 520ms steps(4, end) var(--d, 0ms) 1; }
+    @keyframes sense {
+      0%, 100% { filter: none; }
+      40% { filter: brightness(1.9) saturate(1.4); background-color: var(--sculk-3); }
+    }
+    .sculk-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 20px; margin-top: 12px; font-size: 13px; color: var(--ash); }
+    .legend { display: flex; align-items: center; gap: 3px; }
+    .legend i { width: 11px; height: 11px; display: inline-block; }
+    .legend em { font-style: normal; margin: 0 6px; }
+
+    /* ---------- classes ---------- */
+    .classes { display: grid; gap: 20px; }
+    .class { padding: 24px; display: grid; gap: 18px; border-top: 6px solid var(--tone); }
+    @media (min-width: 700px) { .class { grid-template-columns: 56px 1fr; column-gap: 24px; } }
+    .class > svg { width: 56px; height: 56px; }
+    .class h3 { font-size: 24px; }
+    .class .motto { color: var(--ash); margin-top: 4px; }
+    .class h4 { font-size: 14px; font-weight: 600; margin: 18px 0 8px; color: var(--tone); }
+    .class ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; max-width: 70ch; }
+    .class li { padding-left: 18px; position: relative; }
+    .class li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 6px; height: 6px; background: var(--tone); }
+    .class .next { margin-top: 18px; padding: 12px 14px; background: var(--deepslate); border-left: 4px solid var(--tone); max-width: 70ch; }
+    .architect { --tone: var(--sensor); }
+    .ai { --tone: var(--soul); }
+    .orange { --tone: var(--candle); }
+
+    /* ---------- inventory ---------- */
+    .inventory { padding: 20px; }
+    .inventory h3 { font-size: 16px; font-family: 'Mona Sans', system-ui, sans-serif; font-weight: 600; color: var(--ash); margin: 0 0 12px; }
+    .inventory h3 + .slots { margin-bottom: 24px; }
+    .slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(124px, 1fr)); gap: 6px; }
+    .slot {
+      padding: 12px 10px;
+      background: var(--deepslate);
+      box-shadow: inset 3px 3px 0 #10141a, inset -3px -3px 0 var(--seam-light);
+      font-size: 14px;
+      font-weight: 500;
+      text-align: center;
+    }
+    .slots.learning .slot { color: var(--ash); background: var(--deepslate-low); box-shadow: inset 3px 3px 0 #10141a, inset -3px -3px 0 var(--seam); }
+
+    /* ---------- trajectory ---------- */
+    .trail { list-style: none; margin: 0; padding: 0; position: relative; }
+    .trail::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 4px; background: var(--seam); }
+    .trail li { position: relative; padding: 0 0 26px 40px; max-width: 70ch; }
+    .trail li:last-child { padding-bottom: 0; }
+    .trail li::before { content: ""; position: absolute; left: 0; top: 5px; width: 18px; height: 18px; background: var(--sculk-2); box-shadow: inset -3px -3px 0 var(--sculk-1), inset 3px 3px 0 var(--sculk-3); }
+    .trail li.goal::before { background: var(--sensor); box-shadow: inset -3px -3px 0 var(--sculk-3); }
+    .trail time, .trail .when { font-family: 'Pixelify Sans', system-ui, sans-serif; font-size: 18px; color: var(--sensor); }
+    .trail strong { display: block; font-weight: 600; margin-top: 2px; }
+    .trail p { color: var(--ash); font-size: 15px; margin-top: 2px; }
+
+    /* ---------- repositories ---------- */
+    .repos { display: grid; gap: 16px; }
+    @media (min-width: 700px) { .repos { grid-template-columns: 1fr 1fr; } }
+    .repo { padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; }
+    .repo-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .repo-head svg { width: 16px; height: 16px; fill: var(--ash); flex-shrink: 0; }
+    .repo-name { font-weight: 600; font-size: 15px; color: var(--soul); text-decoration: none; }
+    a.repo-name:hover { text-decoration: underline; }
+    span.repo-name { color: var(--bone); }
+    .vis { font-size: 12px; padding: 0 8px; border: 1px solid var(--seam-light); border-radius: 999px; color: var(--ash); line-height: 20px; }
+    .repo p { font-size: 14px; color: var(--ash); flex: 1; }
+    .repo-meta { display: flex; gap: 16px; font-size: 13px; color: var(--ash); align-items: center; }
+    .lang { display: inline-flex; align-items: center; gap: 6px; }
+    .lang::before { content: ""; width: 10px; height: 10px; background: var(--c); }
+    .sealed { background: repeating-linear-gradient(135deg, var(--deepslate-low) 0 10px, #171c23 10px 20px); }
+    .repos-note { margin-top: 16px; font-size: 14px; color: var(--ash); max-width: 70ch; }
+
+    /* outside .page so the sticky sidebar can't slide over it */
+    footer {
+      margin: 32px max(16px, calc((100% - 1248px) / 2)) 0;
+      padding: 28px 0 48px;
+      border-top: 2px solid var(--seam);
       font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.5;
+      color: var(--ash);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px 24px;
     }
+    @media (min-width: 900px) { footer { margin-inline: max(32px, calc((100% - 1216px) / 2)); padding-bottom: 56px; } }
 
-    .label { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.12em; }
-    .arrow-icon { transition: transform 200ms ease; }
-    a:hover .arrow-icon { transform: translate(2px, -2px); }
-
-    .hero-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: #22c55e; box-shadow: 0 0 12px rgba(34, 197, 94, 0.6);
+    @media (prefers-reduced-motion: reduce) {
+      .grid.sensing i { animation: none; }
     }
   </style>
 </head>
-<body class="min-h-screen">
+<body>
+  <div class="page">
 
-  <!-- HERO -->
-  <header class="relative">
-    <div class="grid-bg absolute inset-0 h-[460px] pointer-events-none opacity-50"></div>
-
-    <div class="relative max-w-5xl mx-auto px-6 md:px-8 pt-20 pb-16">
-      <div class="flex items-center gap-2 mb-8">
-        <div class="hero-dot"></div>
-        <span class="font-mono text-xs text-[color:var(--text-muted)]">cse @ fp-una · asunción, paraguay</span>
-      </div>
-
-      <p class="font-mono text-xs text-[color:var(--text-dim)] mb-4">portfolio / lucas torres</p>
-
-      <h1 class="text-5xl md:text-7xl font-medium mb-5">
-        Lucas Torres
-      </h1>
-
-      <p class="text-xl md:text-2xl max-w-3xl leading-snug mb-3">
-        <span class="text-[color:var(--text)]">Software Architect in training.</span>
-        <span class="text-[color:var(--text-muted)]"> Building </span>
-        <span class="text-[color:var(--accent)]">edge computer vision</span>
-        <span class="text-[color:var(--text-muted)]"> systems, with the backend fundamentals to ship them.</span>
-      </p>
-
-      <p class="text-sm text-[color:var(--text-muted)] mb-10 max-w-2xl">
-        CSE student at FP-UNA. From hardware to backend to AI/CV. Headquartered in Paraguay, betting on a niche that's mostly empty here.
-      </p>
-
-      <div class="flex flex-wrap gap-3">
-        <a href="https://github.com/TurmeDev" class="pill">
-          <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.4 3-.405 1.02.005 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          github.com/TurmeDev
-        </a>
-        <a href="mailto:turmedev@gmail.com" class="pill">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
-          turmedev@gmail.com
-        </a>
-        <a href="https://www.linkedin.com/in/lucas-torres-3a192a354" class="pill">
-          <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.063 2.063 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          LinkedIn
-        </a>
-        <a href="https://www.youtube.com/@TurmeDev" class="pill">
-          <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-          YouTube
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <main class="max-w-5xl mx-auto px-6 md:px-8 space-y-24 pb-20">
-
-    <!-- ABOUT -->
-    <section>
-      <p class="label mb-6">// about</p>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="md:col-span-2 space-y-4 text-lg leading-relaxed text-[color:var(--text)]">
-          <p>
-            I started with hardware at five, broke enough things to learn how they work, and moved into software in 2020. That background still shapes how I think: I care about what a system actually runs on, not just the code on top.
-          </p>
-          <p class="text-[color:var(--text-muted)]">
-            Right now I'm finishing my CS degree at FP-UNA while working toward a niche that doesn't really exist in Paraguay yet: <span class="text-[color:var(--text)]">edge computer vision</span> — running models on devices that aren't in a datacenter. Robotics-grade CV is the dream, but Paraguay doesn't pay for that yet, so the practical path is to put CV where it actually helps: agriculture, traffic, retail, security, anything with a camera and a real problem.
-          </p>
-          <p class="text-[color:var(--text-muted)]">
-            I also keep sharpening backend skills because that's what the local market pays for. The goal isn't to be two devs — it's to be one who can design systems end-to-end, which is the <span class="text-[color:var(--text)]">Software Architect</span> trajectory I'm building toward.
-          </p>
-        </div>
-
-        <div class="space-y-3 font-mono text-sm">
-          <div class="flex justify-between border-b border-[color:var(--border)] pb-2">
-            <span class="text-[color:var(--text-dim)]">based</span><span class="text-[color:var(--text)]">Asunción, PY</span>
-          </div>
-          <div class="flex justify-between border-b border-[color:var(--border)] pb-2">
-            <span class="text-[color:var(--text-dim)]">status</span><span class="text-[color:var(--text)]">CSE student</span>
-          </div>
-          <div class="flex justify-between border-b border-[color:var(--border)] pb-2">
-            <span class="text-[color:var(--text-dim)]">trajectory</span><span class="text-[color:var(--text)]">SA in training</span>
-          </div>
-          <div class="flex justify-between border-b border-[color:var(--border)] pb-2">
-            <span class="text-[color:var(--text-dim)]">languages</span><span class="text-[color:var(--text)]">ES, EN, PT</span>
-          </div>
-          <div class="flex justify-between border-b border-[color:var(--border)] pb-2">
-            <span class="text-[color:var(--text-dim)]">reach</span><span class="text-[color:var(--text)]">remote OK</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOCUS TRIPTYCH -->
-    <section>
-      <p class="label mb-6">// current focus</p>
-
-      <div class="grid md:grid-cols-3 gap-4">
-
-        <div class="focus-card passion">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="font-mono text-xs text-[color:var(--accent)]">// passion</span>
-          </div>
-          <h3 class="text-lg font-medium mb-2">Computer Vision</h3>
-          <p class="text-sm text-[color:var(--text-muted)] leading-relaxed">
-            The long-term specialization. Today it's OpenCV — blurs, binary ops, the statistical side of image work. The deep learning frameworks come next. End goal: models that see, classify, and run somewhere useful.
-          </p>
-        </div>
-
-        <div class="focus-card market">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="font-mono text-xs text-[color:var(--accent-2)]">// market</span>
-          </div>
-          <h3 class="text-lg font-medium mb-2">Backend engineering</h3>
-          <p class="text-sm text-[color:var(--text-muted)] leading-relaxed">
-            What actually pays in Paraguay. Java, Python, Node. APIs, services, the boring glue that makes everything else work. Strong fundamentals on purpose.
-          </p>
-        </div>
-
-        <div class="focus-card niche">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="font-mono text-xs text-[color:#34d399]">// niche</span>
-          </div>
-          <h3 class="text-lg font-medium mb-2">Edge vision</h3>
-          <p class="text-sm text-[color:var(--text-muted)] leading-relaxed">
-            Where CV meets constraints. On-device inference, embedded targets, hardware-aware design. The intersection of what I love and what's buildable here.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- STACK -->
-    <section>
-      <p class="label mb-6">// stack <span class="text-[color:var(--text-dim)]">— what I actually use, honestly</span></p>
-
-      <div class="grid md:grid-cols-3 gap-6">
-
+    <aside class="side" aria-label="Profile">
+      <div class="side-top">
+        <img class="avatar" src="https://github.com/TurmeDev.png?size=40" width="280" height="280" alt="Lucas Torres, pixelated GitHub avatar">
         <div>
-          <h4 class="text-sm font-medium text-[color:var(--text)] mb-3">Languages</h4>
-          <div class="space-y-2">
-            <div class="skill-row"><span class="dot"></span>Python <span class="text-[color:var(--text-dim)] text-xs ml-auto">primary</span></div>
-            <div class="skill-row"><span class="dot dim"></span>Java <span class="text-[color:var(--text-dim)] text-xs ml-auto">basic</span></div>
-            <div class="skill-row"><span class="dot dim"></span>C / C++ <span class="text-[color:var(--text-dim)] text-xs ml-auto">basic · hardware-aware</span></div>
-          </div>
+          <h1 class="name">Lucas Torres</h1>
+          <p class="handle">TurmeDev</p>
         </div>
-
-        <div>
-          <h4 class="text-sm font-medium text-[color:var(--text)] mb-3">Computer Vision</h4>
-          <div class="space-y-2">
-            <div class="skill-row"><span class="dot green"></span>OpenCV <span class="text-[color:var(--text-dim)] text-xs ml-auto">hands-on</span></div>
-            <div class="skill-row"><span class="dot green"></span>FastAPI <span class="text-[color:var(--text-dim)] text-xs ml-auto">Python backend</span></div>
-          </div>
-        </div>
-
-        <div>
-          <h4 class="text-sm font-medium text-[color:var(--text)] mb-3">Infra &amp; Tooling</h4>
-          <div class="space-y-2">
-            <div class="skill-row"><span class="dot purple"></span>Docker <span class="text-[color:var(--text-dim)] text-xs ml-auto">daily</span></div>
-            <div class="skill-row"><span class="dot purple"></span>Linux <span class="text-[color:var(--text-dim)] text-xs ml-auto">daily</span></div>
-            <div class="skill-row"><span class="dot purple"></span>Git / GitHub Actions</div>
-            <div class="skill-row"><span class="dot dim"></span>CI <span class="text-[color:var(--text-dim)] text-xs ml-auto">CD lightly</span></div>
-          </div>
-        </div>
-
       </div>
+      <p class="status panel"><svg viewBox="0 0 6 6" shape-rendering="crispEdges" aria-hidden="true"><path fill="#16606a" d="M0 2h6v4H0z"/><path fill="#4fe3dc" d="M1 0h1v2H1zM4 0h1v2H4zM2 3h2v1H2z"/></svg>Open to internships, junior roles and collaborations in software design, cybersecurity and AI engineering.</p>
+      <p class="bio">Software architect in training, AI engineer, and orange-team-minded about security. Studying Computer Engineering at FP-UNA.</p>
+      <ul class="facts">
+        <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a5.5 5.5 0 0 1 5.5 5.5c0 4.2-5.5 10.5-5.5 10.5S2.5 9.7 2.5 5.5A5.5 5.5 0 0 1 8 0Zm0 3.5a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/></svg>Asunción, Paraguay. Remote OK.</li>
+        <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3h12v1.2L8 8.4 2 4.2V3Zm0 2.6 6 4.2 6-4.2V13H2V5.6Z"/></svg><a href="mailto:turmedev@gmail.com">turmedev@gmail.com</a></li>
+        <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38v-1.33c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.06-.49.06-.49.8.06 1.23.83 1.23.83.72 1.22 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.65-.89-3.65-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.66 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0 0 8 0Z"/></svg><a href="https://github.com/TurmeDev">github.com/TurmeDev</a></li>
+        <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.6 0H2.4C1.1 0 0 1.1 0 2.4v11.2C0 14.9 1.1 16 2.4 16h11.2c1.3 0 2.4-1.1 2.4-2.4V2.4C16 1.1 14.9 0 13.6 0ZM4.9 13.4H2.6V6h2.3v7.4ZM3.7 5a1.3 1.3 0 1 1 0-2.7 1.3 1.3 0 0 1 0 2.7Zm9.7 8.4h-2.3V9.8c0-.9 0-2-1.2-2s-1.4.9-1.4 1.9v3.7H6.2V6h2.2v1h.1c.3-.6 1.1-1.2 2.2-1.2 2.4 0 2.8 1.6 2.8 3.6v4Z"/></svg><a href="https://www.linkedin.com/in/turmedev/">LinkedIn</a></li>
+        <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M15.7 4.1a2 2 0 0 0-1.4-1.4C13 2.4 8 2.4 8 2.4s-5 0-6.3.3A2 2 0 0 0 .3 4.1C0 5.4 0 8 0 8s0 2.6.3 3.9a2 2 0 0 0 1.4 1.4c1.3.3 6.3.3 6.3.3s5 0 6.3-.3a2 2 0 0 0 1.4-1.4c.3-1.3.3-3.9.3-3.9s0-2.6-.3-3.9ZM6.4 10.4V5.6L10.5 8l-4.1 2.4Z"/></svg><a href="https://www.youtube.com/@TurmeDev">YouTube</a></li>
+        <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0Zm5.9 7h-2.4a12 12 0 0 0-1-4.6A6 6 0 0 1 13.9 7ZM8 2c.6.8 1.3 2.5 1.5 5h-3C6.7 4.5 7.4 2.8 8 2ZM5.5 2.4A12 12 0 0 0 4.5 7H2.1a6 6 0 0 1 3.4-4.6ZM2.1 9h2.4c.1 1.7.5 3.3 1 4.6A6 6 0 0 1 2.1 9Zm5.9 5c-.6-.8-1.3-2.5-1.5-5h3c-.2 2.5-.9 4.2-1.5 5Zm2.5-.4c.5-1.3.9-2.9 1-4.6h2.4a6 6 0 0 1-3.4 4.6Z"/></svg>Spanish, English, Portuguese</li>
+      </ul>
 
-      <div class="mt-8 card p-5" style="border-style: dashed;">
-        <p class="font-mono text-xs text-[color:var(--text-dim)] mb-3">// on the roadmap · not in the stack yet</p>
-        <div class="flex flex-wrap gap-2">
-          <span class="font-mono text-xs px-2.5 py-1 border border-dashed border-[color:var(--border)] rounded text-[color:var(--text-muted)]">TensorFlow</span>
-          <span class="font-mono text-xs px-2.5 py-1 border border-dashed border-[color:var(--border)] rounded text-[color:var(--text-muted)]">PyTorch</span>
-          <span class="font-mono text-xs px-2.5 py-1 border border-dashed border-[color:var(--border)] rounded text-[color:var(--text-muted)]">JS / TypeScript</span>
+      <div class="achievements">
+        <h2>Achievements</h2>
+        <div class="badge">
+          <svg viewBox="0 0 9 9" shape-rendering="crispEdges" aria-hidden="true"><path fill="#f0883e" d="M2 0h5v1h1v1h1v5H8v1H7v1H2V8H1V7H0V2h1V1h1z"/><path fill="#151a21" d="M3 2h3v1h1v3H6v1H3V6H2V3h1z"/><path fill="#f0883e" d="M4 3h1v3H4zM3 4h3v1H3z"/></svg>
+          <div><strong>Introduction to Cybersecurity</strong><span>Cisco Networking Academy, May 2026</span></div>
         </div>
-        <p class="text-xs text-[color:var(--text-dim)] mt-3 leading-relaxed">
-          I'd rather show a small stack I can defend than a big one I'd have to explain.
-        </p>
+        <div class="badge">
+          <svg viewBox="0 0 9 9" shape-rendering="crispEdges" aria-hidden="true"><path fill="#7cc4ff" d="M2 0h5v1h1v1h1v5H8v1H7v1H2V8H1V7H0V2h1V1h1z"/><path fill="#151a21" d="M3 2h3v1h1v3H6v1H3V6H2V3h1z"/><path fill="#7cc4ff" d="M4 4h1v1H4zM3 3h1v1H3zM5 3h1v1H5zM3 5h1v1H3zM5 5h1v1H5z"/></svg>
+          <div><strong>Introduction to IoT</strong><span>Cisco Networking Academy, May 2026</span></div>
+        </div>
+        <div class="badge">
+          <svg viewBox="0 0 9 9" shape-rendering="crispEdges" aria-hidden="true"><path fill="#4fe3dc" d="M2 0h5v1h1v1h1v5H8v1H7v1H2V8H1V7H0V2h1V1h1z"/><path fill="#151a21" d="M3 2h3v1h1v3H6v1H3V6H2V3h1z"/><path fill="#4fe3dc" d="M3 3h1v1H3zM5 3h1v1H5zM3 5h3v1H3z"/></svg>
+          <div><strong>AI Tinkerers Hackathon: Agents, Everywhere</strong><span>Asunción chapter, September 2026</span></div>
+        </div>
       </div>
-    </section>
+    </aside>
 
-    <!-- TRAJECTORY -->
-    <section>
-      <p class="label mb-6">// trajectory</p>
+    <main>
 
-      <ol class="timeline">
+      <section class="intro" aria-labelledby="intro-title">
+        <h1 id="intro-title">I design systems, build them with AI agents, and keep security inside the design.</h1>
+        <p>I started with hardware at five and moved into software in 2020. Today I'm studying distributed systems and computer networks at FP-UNA and putting them to work in agent tooling, architecture docs and a small LLM gateway. The goal is a Software Architect who understands what the system runs on, how it talks, and how it can be attacked.</p>
 
-        <li>
-          <span class="year">2009 · AGE 5</span>
-          <p class="what">Started with hardware</p>
-          <p class="why">Disassembled things until I understood them. The instinct for "how does this actually work" never left.</p>
-        </li>
-
-        <li>
-          <span class="year">2020 · AGE 15</span>
-          <p class="what">Moved into software</p>
-          <p class="why">Started writing code. Built small things, broke bigger things, learned from both.</p>
-        </li>
-
-        <li>
-          <span class="year">2024 · NOW</span>
-          <p class="what">CSE @ FP-UNA, building backend fundamentals</p>
-          <p class="why">Studying the degree + sharpening Java, Python, and API design. The market skill that pays the rent while I build the rest.</p>
-        </li>
-
-        <li>
-          <span class="year">2025 · TURNING POINT</span>
-          <p class="what">Started specializing in Computer Vision</p>
-          <p class="why">Picked the niche. Got serious with OpenCV. Stopped trying to learn everything, started going deep on what I actually want to do.</p>
-        </li>
-
-        <li>
-          <span class="year">2026 · CURRENT</span>
-          <p class="what">Picking the edge vision lane</p>
-          <p class="why">Robotics CV is the dream, but Paraguay won't pay for that yet. Edge vision — CV that runs on real devices solving real local problems — is the practical bet.</p>
-        </li>
-
-        <li>
-          <span class="year">FUTURE · THE TARGET</span>
-          <p class="what">Software Architect</p>
-          <p class="why">Designing systems, not just writing code. The end of the path: someone who can hold the whole picture — backend, ML, infra, hardware — in their head at once.</p>
-        </li>
-
-      </ol>
-    </section>
-
-    <!-- PROJECTS -->
-    <section>
-      <p class="label mb-6">// projects</p>
-
-      <div class="space-y-4">
-
-        <a href="https://github.com/TurmeDev/ProyectoDeAlgo" class="card card-link p-6 md:p-8 block group">
-          <div class="flex items-start justify-between gap-4 mb-4">
-            <div>
-              <div class="flex items-center gap-2 mb-1">
-                <span class="font-mono text-xs text-[color:var(--accent)]">project</span>
-                <span class="font-mono text-xs text-[color:var(--text-dim)]">· 2025 · first project</span>
-              </div>
-              <h3 class="text-2xl font-medium">ProyectoDeAlgo</h3>
+        <figure class="sculk panel" style="margin-inline: 0; margin-bottom: 0;">
+          <div class="sculk-scroll" id="sculk-scroll">
+            <div class="sculk-inner">
+              <div class="months" id="months" aria-hidden="true"></div>
+              <div class="weekdays" aria-hidden="true"><span></span><span>Mon</span><span></span><span>Wed</span><span></span><span>Fri</span><span></span></div>
+              <div class="grid" id="grid" role="img" aria-label="GitHub contributions from October 26, 2025 to October 27, 2026: 347 in total, 303 of them in private repositories."></div>
             </div>
-            <svg class="arrow-icon mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
           </div>
+          <figcaption class="sculk-foot">
+            <span id="sculk-read" aria-live="polite">347 contributions in the last year, 303 of them in private repositories.</span>
+            <span class="legend" aria-hidden="true">Less<em></em><i style="background:var(--deepslate-high)"></i><i style="background:var(--sculk-1)"></i><i style="background:var(--sculk-2)"></i><i style="background:var(--sculk-3)"></i><i style="background:var(--sensor)"></i><em></em>More</span>
+          </figcaption>
+        </figure>
+      </section>
 
-          <p class="text-[color:var(--text-muted)] leading-relaxed mb-6">
-            My first Python project using PyGame. A small game built during the Algorithms course at FP-UNA. The code isn't pretty — it's where I learned to ship something that actually runs. Kept public on purpose. This is the floor, not the ceiling.
-          </p>
+      <section aria-labelledby="classes-title">
+        <h2 id="classes-title">Three disciplines, one path</h2>
+        <div class="classes">
 
-          <div class="flex flex-wrap gap-2">
-            <span class="font-mono text-xs px-2 py-1 border border-[color:var(--border)] rounded text-[color:var(--text-muted)]">Python</span>
-            <span class="font-mono text-xs px-2 py-1 border border-[color:var(--border)] rounded text-[color:var(--text-muted)]">PyGame</span>
-            <span class="font-mono text-xs px-2 py-1 border border-[color:var(--border)] rounded text-[color:var(--text-muted)]">algorithms</span>
-          </div>
-        </a>
+          <article class="class panel architect">
+            <svg viewBox="0 0 10 10" shape-rendering="crispEdges" aria-hidden="true"><path fill="#4fe3dc" d="M2 0h4v3H2zM4 3h1v2H4zM1 5h7v1H1zM1 6h1v1H1zM7 6h1v1H7zM0 7h3v3H0zM6 7h3v3H6z"/><path fill="#151a21" d="M3 1h2v1H3zM1 8h1v1H1zM7 8h1v1H7z"/></svg>
+            <div>
+              <h3>Software Architect</h3>
+              <p class="motto">Decisions written down, systems modeled before they're built.</p>
+              <h4>What I already work with</h4>
+              <ul>
+                <li>Architecture decision records for every choice that's hard to undo.</li>
+                <li>C4, ER, sequence, state and Event Storming models, kept as Mermaid next to the code.</li>
+                <li>Requirements specs following IEEE 830 and ISO/IEC/IEEE 29148, generated from a project template I maintain.</li>
+                <li>Distributed systems from the course: middleware, invocation semantics, idempotency, two-phase commit versus sagas, logical clocks.</li>
+              </ul>
+              <p class="next">Next: design distributed systems end to end, with every trade-off on paper before the first line of code.</p>
+            </div>
+          </article>
 
-        <div class="card p-6 md:p-8" style="border-style: dashed;">
-          <div class="flex items-center gap-2 mb-2">
-            <span class="font-mono text-xs text-[color:var(--text-dim)]">project</span>
-            <span class="font-mono text-xs text-[color:var(--text-dim)]">· in progress</span>
-          </div>
-          <h3 class="text-xl font-medium text-[color:var(--text-muted)] mb-2">Next: an edge CV project</h3>
-          <p class="text-sm text-[color:var(--text-dim)] leading-relaxed">
-            Real problem, real dataset, real deployment. End-to-end: data → training → inference → on a device that isn't a server. Living in its own repo when it's ready.
-          </p>
+          <article class="class panel ai">
+            <svg viewBox="0 0 10 10" shape-rendering="crispEdges" aria-hidden="true"><path fill="#7cc4ff" d="M4 0h1v2H4zM1 2h7v1H1zM1 3h1v4H1zM7 3h1v4H7zM1 7h7v1H1zM2 8h1v1H2zM6 8h1v1H6zM3 5h3v1H3z"/><path fill="#4fe3dc" d="M3 4h1v1H3zM5 4h1v1H5z"/></svg>
+            <div>
+              <h3>AI Engineer</h3>
+              <p class="motto">Agents that do real work, inside guardrails I can explain.</p>
+              <h4>What I already work with</h4>
+              <ul>
+                <li>Claude Code as an agent runtime: skills, hooks, subagents and MCP servers.</li>
+                <li>Multi-agent pipelines that split extraction, generation and verification into separate roles.</li>
+                <li>An always-on personal assistant on a Linux box, reachable over Telegram, with Notion as its memory.</li>
+                <li>A specification for an agent harness: decisions, contracts and an evaluation corpus built from real tasks.</li>
+              </ul>
+              <p class="next">Next: an LLM gateway with retries and idempotency keys, token-bucket rate limiting and streaming with backpressure.</p>
+            </div>
+          </article>
+
+          <article class="class panel orange">
+            <svg viewBox="0 0 10 10" shape-rendering="crispEdges" aria-hidden="true"><path fill="#f0883e" d="M1 0h8v1H1zM1 1h1v5H1zM8 1h1v5H8zM2 6h1v1H2zM7 6h1v1H7zM3 7h1v1H3zM6 7h1v1H6zM4 8h2v1H4z"/><path fill="#ffd0a8" d="M4 2h2v1H4zM3 3h4v1H3zM4 4h2v1H4z"/></svg>
+            <div>
+              <h3>Orange Team</h3>
+              <p class="motto">The bridge between how systems get attacked and the people who build them.</p>
+              <h4>What I already work with</h4>
+              <ul>
+                <li>Computer Networks I and II: static and dynamic routing, IPv4 and IPv6, CIDR, NAT and PAT, TCP and congestion control.</li>
+                <li>Agent security in practice: prompt-injection-aware design, least privilege, layered permission hooks that fail closed, isolated users and private network access over Tailscale.</li>
+              </ul>
+              <p class="next">Next: threat modeling and secure-by-design reviews as a default step of architecture work.</p>
+            </div>
+          </article>
+
         </div>
+      </section>
 
-      </div>
-    </section>
-
-    <!-- NOW -->
-    <section>
-      <p class="label mb-6">// now</p>
-      <div class="card p-6 md:p-8">
-        <div class="flex items-start gap-4">
-          <div class="hero-dot mt-2 flex-shrink-0"></div>
-          <div>
-            <p class="text-[color:var(--text)] leading-relaxed mb-2">
-              Finishing CSE at FP-UNA, building the first real edge CV project with OpenCV (and likely PyTorch for the model side), and learning the SA mindset by designing systems end-to-end instead of just shipping features.
-            </p>
-            <p class="font-mono text-xs text-[color:var(--text-dim)]">last updated · 2026 · asunción, paraguay</p>
+      <section aria-labelledby="stack-title">
+        <h2 id="stack-title">Inventory</h2>
+        <div class="inventory panel">
+          <h3>In use</h3>
+          <div class="slots">
+            <div class="slot">Python</div>
+            <div class="slot">Java</div>
+            <div class="slot">C / C++</div>
+            <div class="slot">Bash</div>
+            <div class="slot">FastAPI</div>
+            <div class="slot">Postman</div>
+            <div class="slot">Docker</div>
+            <div class="slot">Linux</div>
+            <div class="slot">Git</div>
+            <div class="slot">GitHub Actions</div>
+            <div class="slot">MCP</div>
+            <div class="slot">Tailscale</div>
+          </div>
+          <h3>Learning next</h3>
+          <div class="slots learning">
+            <div class="slot">PostgreSQL</div>
+            <div class="slot">Redis</div>
+            <div class="slot">OpenTelemetry</div>
+            <div class="slot">OAuth 2.0</div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-  </main>
+      <section aria-labelledby="trail-title">
+        <h2 id="trail-title">Trajectory</h2>
+        <ol class="trail">
+          <li><time datetime="2009">2009</time><strong>Started with hardware, at five</strong><p>Took things apart until I understood them. Still the first question I ask about any system: what does it actually run on?</p></li>
+          <li><time datetime="2020">2020</time><strong>Moved into software</strong><p>Built small things, broke bigger ones, learned from both.</p></li>
+          <li><time datetime="2024">2024</time><strong>Started Computer Engineering at FP-UNA</strong><p>Algorithms, operating systems and networks: the fundamentals the rest stands on.</p></li>
+          <li><span class="when">Now</span><strong>Working the three disciplines</strong><p>Architecture, AI engineering and security, practiced together on agent systems, project templates and a distributed LLM gateway.</p></li>
+          <li class="goal"><span class="when">Next</span><strong>Software Architect</strong><p>Someone who can hold the whole system in view: what it runs on, how it talks, how it fails and how it's attacked.</p></li>
+        </ol>
+      </section>
 
-  <footer class="border-t border-[color:var(--border)]">
-    <div class="max-w-5xl mx-auto px-6 md:px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
-      <p class="font-mono text-xs text-[color:var(--text-dim)]">© 2026 Lucas Torres · Asunción, Paraguay</p>
-      <p class="font-mono text-xs text-[color:var(--text-dim)]">built with intent, hosted on github pages</p>
-    </div>
+      <section aria-labelledby="repos-title">
+        <h2 id="repos-title">Repositories</h2>
+        <div class="repos">
+          <article class="repo panel">
+            <div class="repo-head">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.71 1.71.75.75 0 0 1-1.06 1.06A2.5 2.5 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.71A2.5 2.5 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.09a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+              <a class="repo-name" href="https://github.com/TurmeDev/ProyectoDeAlgo">ProyectoDeAlgo</a>
+              <span class="vis">Public</span>
+            </div>
+            <p>My first Python project: a PyGame game from the Algorithms course. Not pretty, but it's where I learned to ship something that runs.</p>
+            <div class="repo-meta"><span class="lang" style="--c:#3572a5">Python</span></div>
+          </article>
+
+          <article class="repo panel sealed">
+            <div class="repo-head">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4a4 4 0 0 1 8 0v2h.25c.97 0 1.75.78 1.75 1.75v5.5c0 .97-.78 1.75-1.75 1.75h-8.5C2.78 15 2 14.22 2 13.25v-5.5C2 6.78 2.78 6 3.75 6H4Zm6.5 2V4a2.5 2.5 0 0 0-5 0v2Z"/></svg>
+              <span class="repo-name">llm-gateway</span>
+              <span class="vis">Private</span>
+            </div>
+            <p>A gateway between apps and LLM providers that grows one distributed-systems concept per milestone: failures, retries, rate limits, tracing, sagas.</p>
+            <div class="repo-meta"><span class="lang" style="--c:#3572a5">Python</span></div>
+          </article>
+
+          <article class="repo panel sealed">
+            <div class="repo-head">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4a4 4 0 0 1 8 0v2h.25c.97 0 1.75.78 1.75 1.75v5.5c0 .97-.78 1.75-1.75 1.75h-8.5C2.78 15 2 14.22 2 13.25v-5.5C2 6.78 2.78 6 3.75 6H4Zm6.5 2V4a2.5 2.5 0 0 0-5 0v2Z"/></svg>
+              <span class="repo-name">project-bootstrap</span>
+              <span class="vis">Private</span>
+            </div>
+            <p>A minimal, stack-neutral template for starting projects, with an IEEE-style requirements spec and agent skills for the MVP and feature lifecycle.</p>
+            <div class="repo-meta"><span class="lang" style="--c:#083fa1">Markdown</span></div>
+          </article>
+
+          <article class="repo panel sealed">
+            <div class="repo-head">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4a4 4 0 0 1 8 0v2h.25c.97 0 1.75.78 1.75 1.75v5.5c0 .97-.78 1.75-1.75 1.75h-8.5C2.78 15 2 14.22 2 13.25v-5.5C2 6.78 2.78 6 3.75 6H4Zm6.5 2V4a2.5 2.5 0 0 0-5 0v2Z"/></svg>
+              <span class="repo-name">Pelurvis</span>
+              <span class="vis">Private</span>
+            </div>
+            <p>An always-on personal assistant built on Claude Code, Telegram and Notion, with a permission guard in layers that blocks on any error.</p>
+            <div class="repo-meta"><span class="lang" style="--c:#3572a5">Python</span></div>
+          </article>
+        </div>
+        <p class="repos-note">The three private ones are being cleaned up for release. Each will go public with its own README and a demo.</p>
+      </section>
+
+    </main>
+
+  </div>
+
+  <footer>
+    <span>Lucas Torres, Asunción, Paraguay</span>
+    <span>Hand-built HTML and CSS on GitHub Pages. Updated October 2026.</span>
   </footer>
 
+  <script>
+    // Daily contributions from the GitHub calendar, 2025-10-26 (a Sunday) to 2026-10-27.
+    const START = '2025-10-26';
+    const COUNTS = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,21,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,0,0,0,0,0,1,0,1,0,5,11,3,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,53,1,2,0,12,9,7,0,0,0,0,0,0,0,0,0,4,1,0,0,0,0,20,3,2,0,0,3,3,0,1,0,0,0,0,34,4,1,0,0,2,0,0,0,0,1,0,5,2,1,0,0,0,0,2,1,0,0,0,0,0,0,0,0,0,0,1,0,2,0,0,0,0,0,2,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,10,0,0,0,0,4,7,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,10,0,0,3,3,0,35,6,0,0,0,0];
+    const level = n => n === 0 ? 0 : n <= 2 ? 1 : n <= 6 ? 2 : n <= 12 ? 3 : 4;
+
+    const grid = document.getElementById('grid');
+    const months = document.getElementById('months');
+    const readout = document.getElementById('sculk-read');
+    const start = new Date(START + 'T12:00:00Z');
+    const fmt = new Intl.DateTimeFormat('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+    const monthFmt = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC' });
+    const cells = [];
+    let lastMonth = -1;
+
+    COUNTS.forEach((n, i) => {
+      const day = new Date(start.getTime() + i * 86400000);
+      const cell = document.createElement('i');
+      cell.dataset.l = level(n);
+      cell.dataset.i = i;
+      cell.title = (n === 1 ? '1 contribution' : n + ' contributions') + ' on ' + fmt.format(day);
+      grid.appendChild(cell);
+      cells.push(cell);
+      const week = Math.floor(i / 7);
+      if (day.getUTCDate() <= 7 && day.getUTCDay() === 0 && day.getUTCMonth() !== lastMonth && week < 52) {
+        const label = document.createElement('span');
+        label.textContent = monthFmt.format(day);
+        label.style.left = 'calc(' + week + ' * (var(--cell) + 3px))';
+        months.appendChild(label);
+        lastMonth = day.getUTCMonth();
+      }
+    });
+
+    // A sculk sensor's pulse: spreads outward from one block, one ring at a time.
+    const quiet = matchMedia('(prefers-reduced-motion: reduce)');
+    function pulseFrom(origin) {
+      if (quiet.matches) return;
+      const ox = Math.floor(origin / 7), oy = origin % 7;
+      cells.forEach((c, i) => {
+        const dist = Math.max(Math.abs(Math.floor(i / 7) - ox), Math.abs(i % 7 - oy));
+        c.style.setProperty('--d', (dist * 22) + 'ms');
+      });
+      grid.classList.remove('sensing');
+      void grid.offsetWidth;
+      grid.classList.add('sensing');
+    }
+
+    grid.addEventListener('click', e => {
+      const cell = e.target.closest('i');
+      if (!cell) return;
+      readout.textContent = cell.title.charAt(0).toUpperCase() + cell.title.slice(1) + '.';
+      pulseFrom(Number(cell.dataset.i));
+    });
+
+    const scroller = document.getElementById('sculk-scroll');
+    if (scroller.scrollWidth > scroller.clientWidth) scroller.scrollLeft = scroller.scrollWidth;
+    setTimeout(() => pulseFrom(COUNTS.length - 1), 500);
+  </script>
 </body>
 </html>

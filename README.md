@@ -1,27 +1,37 @@
-# Lucas Torres
+<img src="banner.svg" alt="Lucas Torres: Software Architect, AI Engineer, Orange Team" width="100%">
 
-**Software Architect in training.** Building edge computer vision systems from Paraguay, with the backend fundamentals to ship them.
+**Software Architect in training, AI Engineer, Orange Team.** I design systems, build them with AI agents, and keep security inside the design. From Paraguay.
 
-[→ Portfolio](https://turmedev.github.io/TurmeDev/)
+Open to internships, junior roles and collaborations in software design, cybersecurity and AI engineering.
+
+[Portfolio](https://turmedev.github.io/TurmeDev/)
 
 ---
 
 ## About
 
-CSE student at **FP-UNA** (Facultad Politécnica, Universidad Nacional de Asunción). Started with hardware at five, moved into software in 2020, picked computer vision as the niche in 2025, betting on **edge vision** for the long term.
+Computer Engineering student at **FP-UNA** (Facultad Politécnica, Universidad Nacional de Asunción). Started with hardware at five and moved into software in 2020. Today I'm studying distributed systems and computer networks, and putting them to work in agent tooling, architecture docs and a small LLM gateway.
 
-This repo hosts my [portfolio](https://turmedev.github.io/TurmeDev/) — same content lives there in a more polished form.
+## Three disciplines
 
-## Currently working with
+- **Software Architect:** architecture decision records, C4 / ER / sequence / state / Event Storming models in Mermaid, IEEE 830 and 29148 requirements specs, distributed-systems foundations (invocation semantics, idempotency, sagas, logical clocks).
+- **AI Engineer:** Claude Code as an agent runtime (skills, hooks, subagents, MCP), multi-agent pipelines, an always-on personal assistant over Telegram with Notion as memory.
+- **Orange Team**, the bridge between how systems get attacked and the people who build them: Computer Networks I and II, agent security in practice (least privilege, permission hooks that fail closed, isolated users, Tailscale).
 
-- **Languages:** Python (primary), Java, C / C++
-- **Computer Vision:** OpenCV
-- **Backend:** FastAPI
-- **Infra:** Docker, Linux, Git, GitHub Actions, CI
+## Certificates and events
 
-## On the roadmap
+- Cisco Networking Academy: Introduction to Cybersecurity (May 2026)
+- Cisco Networking Academy: Introduction to IoT (May 2026)
+- AI Tinkerers Hackathon: Agents, Everywhere, Asunción chapter (September 2026)
 
-TensorFlow, PyTorch — learning, not in the stack yet.
+## Stack
+
+- **In use:** Python, Java, C / C++, Bash, FastAPI, Postman, Docker, Linux, Git, GitHub Actions, MCP, Tailscale
+- **Learning next:** PostgreSQL, Redis, OpenTelemetry, OAuth 2.0
+
+## Repositories
+
+Most of my work is private for now: `llm-gateway`, `project-bootstrap` and `Pelurvis` are being cleaned up for release, each with its own README and demo.
 
 ## Find me
 

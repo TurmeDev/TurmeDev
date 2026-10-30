@@ -31,7 +31,9 @@ Computer Engineering student at **FP-UNA** (Facultad Politécnica, Universidad N
 
 ## Repositories
 
-Most of my work is private for now: `llm-gateway`, `project-bootstrap` and `Pelurvis` are being cleaned up for release, each with its own README and demo.
+- [**pelurvis-kit**](https://github.com/TurmeDev/pelurvis-kit): Pelurvis, my always-on personal assistant on Claude Code, Telegram and Notion, packaged as a kit to build your own.
+
+`llm-gateway` and `project-bootstrap` are still private while I clean them up for release, each with its own README and demo.
 
 ## Find me
 
